@@ -9,7 +9,6 @@ export async function POST(req: Request) {
     const id: number = Date.now()
 
     const values: Session = await getEmbedding(param, id.toString())
-    console.log('hit')
     await prisma.vM.create({
         data: {
             id: id.toString(),
