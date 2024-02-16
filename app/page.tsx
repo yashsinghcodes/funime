@@ -1,6 +1,4 @@
-import { getEmbedding } from "@/lib/api";
 import Image from "next/image";
-import Link from "next/link";
 import InputBox from "@/components/input";
 
 export default async function Home() {

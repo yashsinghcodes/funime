@@ -47,7 +47,7 @@ export default function InputBox() {
                                         }}
                                         width={40}
                                     />
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col justify-start items-start">
                                         <span className="text-md">{option["title"]}</span>
                                         <p className="text-sm text-gray-500">{option['releaseDate']}</p>
                                     </div>
