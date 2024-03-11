@@ -1,14 +1,13 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+import MakeQuery from "@/lib/db";
 
-
-const prisma = new PrismaClient()
 
 async function GET(request: Request, { params }: { params: { id: string } }) {
-    prisma.vM.delete({
-        where: {
-            id: params.id
-        }
+    MakeQuery({
+        query: "DELET FROM VM WHERE `id` = ?;",
+        values: [params.id]
     })
+
     return NextResponse.json({ status: "OK" })
 }

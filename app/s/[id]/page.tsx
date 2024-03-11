@@ -1,23 +1,20 @@
 import Header from "@/components/header";
-import { PrismaClient } from "@prisma/client"
 import Screen from "@/components/screen";
+import MakeQuery from "@/lib/db";
 
-// TODO: Remove Primsa and shift to raw SQL
 
 
-const prisma = new PrismaClient();
+type DataTuple = [{ embed_url: string }];
+
 
 export default async function Page({ params }: { params: { id: string } }) {
 
-    const value = await prisma.vM.findMany({
-        where: {
-            session_id: {
-                contains: params.id,
-            },
-        },
+    const [value, _] = await MakeQuery({
+        query: "SELECT embed_url FROM `VM` WHERE `session_id` = ? LIMIT 1;",
+        values: [params.id]
     });
 
-    const link = value[0].embed_url;
+    const link = (value as DataTuple)[0].embed_url;
 
     return (
         <div className="h-screen justify-center items-center">

@@ -4,7 +4,6 @@ export interface Session {
     admin_token: string
 }
 
-// hardcoded parameters for now.
 
 interface Body {
     start_url: string
