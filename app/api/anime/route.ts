@@ -4,7 +4,7 @@ export async function POST(request: Request) {
 
     const value = await request.text()
     if (value.length > 3) {
-        const results = await fetch(`https://api1.anime-dex.workers.dev/search/${value}`,
+        const results = await fetch(`https://animedexapi.rexcalumba86.workers.dev/search/${value}`,
             {
                 mode: 'cors',
                 method: 'GET',
