@@ -12,13 +12,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     });
 
 
-    if ((value as any[]).length == 0) {
-        const [value, _] = await MakeQuery({
-            query: "SELECT embed_url FROM `VM` WHERE `session_id` = ? LIMIT 1;",
-            values: [params.id]
-        });
-    }
-
     const link = (value as DataTuple)[0].embed_url;
 
     return (

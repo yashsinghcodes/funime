@@ -19,9 +19,19 @@ export async function POST(req: Request) {
     const values: Session = await getEmbedding(param, id.toString())
 
     MakeQuery({
+        query: "BEGIN",
+        values: []
+    })
+
+    MakeQuery({
         query: "INSERT INTO VM(id, session_id, embed_url, admin_token) VALUES(?, ?, ?, ?)",
         values: [id.toString(), values.session_id, values.embed_url, values.admin_token]
     });
+
+    MakeQuery({
+        query: "COMMIT",
+        values: []
+    })
 
     return NextResponse.json(values)
 }
