@@ -17,11 +17,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     const link = (value as DataTuple)[0].embed_url;
 
     return (
-        <div className="h-screen justify-center items-center">
-            <Header />
-            <div className="flex justify-center">
-                <Screen link={link}></Screen>
-            </div>
+        <div className="flex justify-center">
+            <Screen link={link}></Screen>
         </div>
     )
 }

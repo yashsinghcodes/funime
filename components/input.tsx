@@ -32,11 +32,11 @@ export default function InputBox() {
         <div className="w-full items-center justify-center flex flex-col h-fit-content">
             {!loading ? (
                 <div className="w-full items-center justify-center flex flex-col">
-                    <input className="mt-10 p-4 rounded-3xl w-1/3 text-left text-black pl-6 font-semibold border-purple-900" placeholder="Search" onChange={e => handelInput(e.target.value)} />
+                    <input className="mt-10 p-4 rounded-3xl w-2/3 text-left text-black pl-6 font-semibold border-purple-900" placeholder="Search" onChange={e => handelInput(e.target.value)} />
                     {
                         options.map((option) => {
                             return (
-                                <button className="flex px-4 py-2 space-x-4 rounded-lg w-1/3 mt-2 hover:bg-white hover:text-black leading-none tracking-tight" onClick={() => handelClick(option['link'])} key={option['id']}>
+                                <button className="flex px-4 py-2 space-x-4 rounded-lg w-2/3 mt-2 hover:bg-white hover:text-black leading-none tracking-tight" onClick={() => handelClick(option['link'])} key={option['id']}>
                                     <img
                                         alt="Cover"
                                         className="rounded-lg"

@@ -1,9 +1,15 @@
 import { getEmbedding, Session } from "@/lib/api";
 import { NextResponse } from "next/server";
 import MakeQuery from "@/lib/db";
-
+import rateLimiterMiddleware from "@/lib/ratelimiter";
 
 export async function POST(req: Request) {
+    const ip = req.headers.get('x-real-ip') as string;
+
+    if (!rateLimiterMiddleware(ip)) {
+        return NextResponse.json([]);
+    }
+
     const param: string = await req.text()
     const id: number = Date.now()
 
