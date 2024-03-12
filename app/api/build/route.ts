@@ -4,12 +4,15 @@ import MakeQuery from "@/lib/db";
 import rateLimiterMiddleware from "@/lib/ratelimiter";
 
 export async function POST(req: Request) {
+    /*
     const ip = req.headers.get('x-real-ip') as string;
 
-    if (!rateLimiterMiddleware(ip)) {
-        return NextResponse.json([]);
-    }
 
+    if (!rateLimiterMiddleware(ip)) {
+        console.log('we are here')
+        return NextResponse.json({});
+    }
+*/
     const param: string = await req.text()
     const id: number = Date.now()
 

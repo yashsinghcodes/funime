@@ -24,7 +24,7 @@ export async function getEmbedding(url: string, id: string) {
             ublock: true,
             fps: 30,
             timeout: {
-                inactive: 120,
+                inactive: 600,
                 webhook: {
                     url: `https://funime-six.vercel.app/api/del/${id}`
                 }
